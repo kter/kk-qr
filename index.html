@@ -34,12 +34,12 @@
         const generateQRCode = async (url) => {
             try {
                 let canvas = document.getElementById('qrcodeCanvas');
-                await qrcode.toCanvas(canvas, url);
+                await QRCode.toCanvas(canvas, url); // QRCode オブジェクトを使用
 
-                const imgDim = { width: 30, height: 30 }; // Logo dimensions
+                const imgDim = { width: 30, height: 30 }; // ロゴの寸法
                 const context = canvas.getContext('2d');
                 const imageObj = new Image();
-                imageObj.src = './images/logo.png'; // Update the logo path if needed
+                imageObj.src = './images/logo.png'; // ロゴのパスを確認
                 imageObj.onload = function () {
                     context.drawImage(imageObj,
                         canvas.width / 2 - imgDim.width / 2,
